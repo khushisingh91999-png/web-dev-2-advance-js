@@ -1,8 +1,26 @@
-botton{
+/* button{
     padding:10px 20px;
-    background-color:blue;
+    background-color:#6969d9;
     color:white;
     border:none;
     border-radius:5px;
     cursor:pointer;
+} */
+
+.btn{
+    margin-top:20px;
+    text-align:center;
+    background-color:rgb(174, 22, 48);
+
+}
+
+li{
+    width: 300px;
+    background-color: tan;
+    display: flex;
+    margin: 5px;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
 }

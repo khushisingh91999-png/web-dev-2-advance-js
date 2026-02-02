@@ -203,28 +203,55 @@
 
 
 
-function finishHomework( callback){
-  console.log("Starting Homework...");
-  setTimeout(() => {
-    console.log("Homework Completed!");
-    callback();
-  }, 2000);
-}
+// function finishHomework( callback){
+//   console.log("Starting Homework...");
+//   setTimeout(() => {
+//     console.log("Homework Completed!");
+//     callback();
+//   }, 2000);
+// }
 
-function eatDinner(callback){
-  console.log("Starting Dinner...");
-  setTimeout(() => {
-    console.log("Dinner Completed!");
-    callback();
-  }, 1500);
-}
+// function eatDinner(callback){
+//   console.log("Starting Dinner...");
+//   setTimeout(() => {
+//     console.log("Dinner Completed!");
+//     callback();
+//   }, 1500);
+// }
 
-function goToPlayground(callback){
-  console.log("Going to the playground!");
-}
+// function goToPlayground(){
+//   console.log("Going to the playground!");
+// }
 
-finishHomework(() => {
-  eatDinner(() => {
-    goToPlayground()
-    });
-  });
+// finishHomework(() => {
+//   eatDinner(() => {
+//     goToPlayground()
+//     });
+//   });
+
+
+
+
+const input=document.querySelector("#task")
+const button=document.querySelector(".btn")
+const lists=document.querySelector(".list")
+
+button.addEventListener("click",(e)=>{
+  e.preventDefault();
+  if(input.value===""){
+    alert("Enter Task")
+    return
+  }
+ const li=document.createElement("li")
+ const deleteBtn=document.createElement("button")
+ deleteBtn.innerText="Delete"
+
+ li.innerText=input.value
+  li.appendChild(deleteBtn)
+ lists.appendChild(li)
+
+  deleteBtn.addEventListener("click",()=>{
+    lists.removeChild(li)
+  })
+  input.value=""
+})

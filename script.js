@@ -232,26 +232,125 @@
 
 
 
-const input=document.querySelector("#task")
-const button=document.querySelector(".btn")
-const lists=document.querySelector(".list")
+// const input=document.querySelector("#task")
+// const button=document.querySelector(".btn")
+// const lists=document.querySelector(".list")
 
-button.addEventListener("click",(e)=>{
-  e.preventDefault();
-  if(input.value===""){
-    alert("Enter Task")
-    return
-  }
- const li=document.createElement("li")
- const deleteBtn=document.createElement("button")
- deleteBtn.innerText="Delete"
+// button.addEventListener("click",(e)=>{
+//   e.preventDefault();
+//   if(input.value===""){
+//     alert("Enter Task")
+//     return
+//   }
+//  const li=document.createElement("li")
+//  const deleteBtn=document.createElement("button")
+//  deleteBtn.innerText="Delete"
 
- li.innerText=input.value
-  li.appendChild(deleteBtn)
- lists.appendChild(li)
+//  li.innerText=input.value
+//   li.appendChild(deleteBtn)
+//  lists.appendChild(li)
 
-  deleteBtn.addEventListener("click",()=>{
-    lists.removeChild(li)
+//   deleteBtn.addEventListener("click",()=>{
+//     lists.removeChild(li)
+//   })
+//   input.value=""
+// })
+
+
+
+
+// const p=new Promise(function(resolve,reject){
+//   // resolve()
+//   // reject()
+//     setTimeout(()=>{
+//          //console.log("Inside Timeout")
+//         let done=true;
+//         if(done){
+//           resolve({name:"Khushi", age:20})
+//         }
+//         else{
+//           reject("network issue")
+//         }
+//      },5000)
+// })
+// p.then((data)=>{
+//   console.log("Promise Resolved", data)
+// }).catch((error)=>{
+//   console.log("Promise Rejected", error)
+// }).finally(()=>{
+//   console.log("Finally block!")
+// })
+
+
+
+function dohomework(){
+  const p=new Promise(function(resolve,reject){
+    setTimeout(()=>{
+      let done=true;
+      if(done){
+        console.log("Homework is Done")
+        resolve("Homework Completed!") 
+      }
+      else{
+        reject("Homework is Not Completed")
+      }
+    },2000)
   })
-  input.value=""
+  return p
+}
+
+
+function eatDinner(){
+  const p=new Promise(function(resolve,reject){
+    setTimeout(()=>{
+      let done=true;
+      if(done){
+        console.log("Dinner is Done")
+        resolve("Dinner Completed!") 
+      }
+      else{
+        reject("Dinner is Not Completed")
+      }
+    },2000)
+  })
+  return p
+}
+
+
+
+function goToPlayground(){
+  const p=new Promise(function(resolve,reject){
+    setTimeout(()=>{
+      let done=false;
+      if(done){
+        console.log("Went to the playground!")
+        resolve(" Playground time!") 
+      }
+      else{
+        reject("Not allowed to play!")
+      }
+    },2000)
+  })
+  return p
+}
+     
+
+
+dohomework()
+.then((message)=>{
+  console.log(message)
+  return eatDinner()
+})
+.then((message)=>{
+  console.log(message) 
+  return goToPlayground()
+})
+.then((message)=>{
+  console.log(message)
+})
+.catch((error)=>{
+  console.log(error)
+})
+.finally(()=>{
+  console.log("Go to sleep!")
 })

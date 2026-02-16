@@ -283,74 +283,149 @@
 
 
 
-function dohomework(){
-  const p=new Promise(function(resolve,reject){
-    setTimeout(()=>{
-      let done=true;
-      if(done){
-        console.log("Homework is Done")
-        resolve("Homework Completed!") 
-      }
-      else{
-        reject("Homework is Not Completed")
-      }
-    },2000)
-  })
-  return p
-}
+// function dohomework(){
+//   const p=new Promise(function(resolve,reject){
+//     setTimeout(()=>{
+//       let done=true;
+//       if(done){
+//         console.log("Homework is Done")
+//         resolve("Homework Completed!") 
+//       }
+//       else{
+//         reject("Homework is Not Completed")
+//       }
+//     },2000)
+//   })
+//   return p
+// }
 
+// function eatDinner(){
+//   const p=new Promise(function(resolve,reject){
+//     setTimeout(()=>{
+//       let done=true;
+//       if(done){
+//         console.log("Dinner is Done")
+//         resolve("Dinner Completed!") 
+//       }
+//       else{
+//         reject("Dinner is Not Completed")
+//       }
+//     },2000)
+//   })
+//   return p
+// }
 
-function eatDinner(){
-  const p=new Promise(function(resolve,reject){
-    setTimeout(()=>{
-      let done=true;
-      if(done){
-        console.log("Dinner is Done")
-        resolve("Dinner Completed!") 
-      }
-      else{
-        reject("Dinner is Not Completed")
-      }
-    },2000)
-  })
-  return p
-}
-
-
-
-function goToPlayground(){
-  const p=new Promise(function(resolve,reject){
-    setTimeout(()=>{
-      let done=false;
-      if(done){
-        console.log("Went to the playground!")
-        resolve(" Playground time!") 
-      }
-      else{
-        reject("Not allowed to play!")
-      }
-    },2000)
-  })
-  return p
-}
+// function goToPlayground(){
+//   const p=new Promise(function(resolve,reject){
+//     setTimeout(()=>{
+//       let done=true;
+//       if(done){
+//         console.log("Went to the playground!")
+//         resolve(" Playground time!") 
+//       }
+//       else{
+//         reject("Not allowed to play!")
+//       }
+//     },2000)
+//   })
+//   return p
+// }
      
+// dohomework()
+// .then((message)=>{
+//   console.log(message)
+//   return eatDinner()
+// })
+// .then((message)=>{
+//   console.log(message) 
+//   return goToPlayground()
+// })
+// .then((message)=>{
+//   console.log(message)
+// })
+// .catch((error)=>{
+//   console.log(error)
+// })
+// .finally(()=>{
+//   console.log("Go to sleep!")
+// })
+
+// function orderFood(){
+//   return new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("Food ordered!")
+//         resolve("Food ordered!")
+//     },1000)
+//   })
+// }
+// function prepareFood(){
+//   return new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//       console.log("Food prepared!")
+//       resolve("Food prepared!")
+//     },1000)
+//   })
+// }
+// function deliverFood(){
+//   return new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("Food delivered!")
+//       resolve("Food delivered!")
+//     },1000)
+//   })
+// }
+// async function order (){
+//     const data = await orderFood()
+//     console.log(data)
+//     await prepareFood()
+//     await deliverFood()
+// }
+// order()
 
 
-dohomework()
-.then((message)=>{
-  console.log(message)
-  return eatDinner()
-})
-.then((message)=>{
-  console.log(message) 
-  return goToPlayground()
-})
-.then((message)=>{
-  console.log(message)
-})
-.catch((error)=>{
-  console.log(error)
-})
-.finally(()=>{
-  console.log("Go to sleep!")
-})
+//  orderFood().then((data)=>{
+//   console.log(data)
+//   return prepareFood()
+//  }).then((data)=>{
+//     console.log(data)
+//     return deliverFood()
+//  }).then((data)=>{
+//     console.log(data)
+//  }).catch((error)=>{
+//      console.log(error)
+//  })
+
+
+// console.log("first line")
+// try {
+//     //let sample=324
+//     //console.log(sample)
+//     let age=19
+//     if(age<18){
+//         //error
+//         throw new Error("Access Denied")
+//     }
+// } catch (error) {
+//   console.log(error)
+// }finally{
+//     console.log("finally block")
+// }
+// console.log("last line")
+
+
+async function getData(){
+  try {
+       const response=await fetch("https://dummyjson.com/products")
+       console.log(response)
+       console.log(response.ok,response.status)
+       if(response.ok===false)throw new Error("Data not found")
+    
+       const data=await response.json()
+       console.log(data)
+       //data.products.forEach(element) => {
+        //    console.log(element.price)
+        //}
+  }catch (error) {
+       console.log("Data not found")
+  }
+}

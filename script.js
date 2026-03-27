@@ -534,10 +534,3 @@
 //     return function(c){
 //       return a+b+c
 //     }
-// }
-// }
-// // console.log(add(1)(2)(3))
-// const first=add(1)
-// const second=first(2)
-// const third=second(3)
-// console.log(third)

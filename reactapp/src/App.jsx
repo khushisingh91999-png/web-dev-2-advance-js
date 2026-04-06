@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import Sample from './component/sample'
+import { add, subtract } from './utility'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -114,6 +116,7 @@ function App() {
 
       <div className="ticks"></div>
       <section id="spacer"></section>
+      <Sample count={count} setCount={setCount} />
     </>
   )
 }

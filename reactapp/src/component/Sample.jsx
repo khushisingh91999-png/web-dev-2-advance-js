@@ -1,29 +1,69 @@
-import React,{Component, useState} from 'react'
+import React,{Component, useState, useEffect} from 'react'
+import style from '../css/Sample.module.css'
+import style1 from '../css/Homepage.module.css'
+//import styled from 'styled-components'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
+
 
 function Sample(props) {
     const [name,setName]=useState("Khushi")
     const [age,setAge]=useState(20)
 
+    useEffect(()=>{
+        console.log("Component Mounted")
+        return()=>{
+            console.log("Component Unmounted")
+        }
+    },[name])
+
   return (
-    <div>
-      <h2>Trending topics</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quae maiores, nobis laboriosam non commodi quia consequuntur vitae dolore facere deserunt quas recusandae iste harum in, provident aut reprehenderit temporibus.</p>
-      <h3>{name}</h3>
-        <button onClick={()=>{
-            setName("Alex")
-            
+  <div>
+    <h2>Trending topics</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quae maiores, nobis laboriosam non commodi quia consequuntur vitae dolore facere deserunt quas recusandae iste harum in, provident aut reprehenderit temporibus.</p>
+    <h3>{name}</h3>
+    <button onClick={()=>{
+        setName("Alex")
         }}>Name Change</button>
-    <button
+        <button
         className="counter"
         onClick={() => props.setCount((count) => count + 1)}
-    >
-        Count is {props.count}
-    </button>
-    </div>
-  )
+        >
+            Count is {props.count}
+            </button>
+            <div>
+                <Button >First</Button>
+                <Button green>Second</Button>
+                <button css={{buttonStyle}}>Third</button>
+                <button className='bg-red-500 text-white w-24 h-10 rounded-lg'>Fourth</button>
+                </div>
+                </div>
+                )
 }
 
-class Sample extends Component {
+export default Sample
+
+const buttonStyle=css`
+    background-color: orange;
+    color: white;
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+`   
+
+
+const Button = styled.button`
+    background-color: ${(props) => props.green ? "green" : "red"};
+    color: white;
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+`
+
+
+ {/* class Sample extends Component {
     constructor(props){
         super(props)
         this.state={
@@ -78,6 +118,6 @@ class Sample extends Component {
     }
 
 }
-export default Sample 
-  
+export default Sample
 
+ */}

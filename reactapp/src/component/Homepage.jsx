@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import { Link } from 'react-router-dom'
 function Homepage() {
      const [login,setLogin]=useState(false)
 //   if(login){
@@ -10,6 +11,10 @@ function Homepage() {
     return (
       <>
       {login?<button onClick={() => setLogin(false)}>Logout</button>:<button onClick={() => setLogin(true)}>Login</button>}
+      <ul>
+        <li><Link to ="/">Homepage</Link></li>
+        <li><Link to ="/Contact">Contact</Link></li>
+      </ul>
         </>
     )
 }
